@@ -8,8 +8,9 @@ import anorm._
 import play.api.db.DB
 import play.api.Play.current
 import anorm.{ SQL, SqlParser }
+import play.api.Logger
 
-object SentenceController extends Controller {
+object CharacterController extends Controller {
 
   def init = Action.async { implicit request =>
     scala.concurrent.Future {
@@ -22,14 +23,15 @@ object SentenceController extends Controller {
         batchInsert.execute()
       }
 
-    }.map(i => Ok("db was initialized with sentences"))
+    }.map(i => Ok("db was initialized with 2 characters"))
   }
 
   def index = Action { request =>
     DB.withConnection { implicit connection =>
-      val firstRow = SQL("Select count(*) as c from Character").apply().head
-      val countryCount = firstRow[Long]("c")
-      Ok("number of characters: " + countryCount)
+      val first_row = SQL("Select count(*) as c from Character").apply().head
+      val character_count = first_row[Long]("c")
+      Logger.info(s"$character_count  character(s) found")
+      Ok("number of characters: " + character_count)
     }
   }
 

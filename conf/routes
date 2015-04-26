@@ -3,9 +3,9 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Assets.at(path="/public", file="app/index.html")
+GET   /             controllers.Assets.at(path="/public", file="app/index.html")
 
-GET     /api/sentences/init         controllers.SentenceController.init
-GET     /api/sentences         controllers.SentenceController.index
+GET   /init         controllers.CharacterController.init
+GET   /characters   controllers.CharacterController.index
 
-GET     /*file                      controllers.Assets.at(path="/public", file)
+GET   /*file        controllers.Assets.at(path="/public", file)
