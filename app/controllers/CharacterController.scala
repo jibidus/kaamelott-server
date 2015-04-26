@@ -31,7 +31,7 @@ object CharacterController extends Controller {
       val first_row = SQL("Select count(*) as c from Character").apply().head
       val character_count = first_row[Long]("c")
       Logger.info(s"$character_count  character(s) found")
-      Ok("number of characters: " + character_count)
+      Ok(views.html.characters(character_count))
     }
   }
 
