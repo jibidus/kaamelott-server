@@ -12,20 +12,13 @@ import play.api.mvc.BodyParsers._
 import play.api.libs.json.Json
 import play.api.libs.json.Json._
 
-object CharacterController extends Controller {
+object SentenceController extends Controller {
 
-  val characters = TableQuery[Characters]
   val sentences = TableQuery[Sentences]
-  implicit val character_format = Json.format[Character]
-
-  def init = DBAction { implicit rs =>
-    characters.insert(Character(1, "Angharad"))
-    sentences.insert(Sentence(1, "Elle est où la poubellette ?"))
-    Ok("db was initialized with 2 characters")
-  }
+  implicit val sentence_format = Json.format[Sentence]
 
   def index = DBAction { implicit rs =>
-    Ok(toJson(characters.list))
+    Ok(toJson(sentences.list))
   }
 
 }
