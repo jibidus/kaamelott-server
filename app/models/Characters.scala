@@ -9,3 +9,7 @@ class Characters(tag: Tag) extends Table[Character](tag, "Character") {
   def name = column[String]("NAME")
   def * = (id, name) <> (Character.tupled, Character.unapply _)
 }
+
+object Characters {
+  val query = TableQuery[Characters]
+}

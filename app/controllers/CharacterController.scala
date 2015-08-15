@@ -14,18 +14,17 @@ import play.api.libs.json.Json._
 
 object CharacterController extends Controller {
 
-  val characters = TableQuery[Characters]
-  val sentences = TableQuery[Sentences]
   implicit val character_format = Json.format[Character]
 
   def init = DBAction { implicit rs =>
-    characters.insert(Character(1, "Angharad"))
-    sentences.insert(Sentence(1, "Elle est où la poubellette ?"))
+    val angharad = Character(1, "Angharad")
+    Characters.query.insert(angharad)
+    Sentences.query.insert(Sentence(1, "Elle est où la poubellette ?", angharad.id))
     Ok("db was initialized with 2 characters")
   }
 
   def index = DBAction { implicit rs =>
-    Ok(toJson(characters.list))
+    Ok(toJson(Characters.query.list))
   }
 
 }
