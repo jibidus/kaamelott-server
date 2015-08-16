@@ -3,13 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Assets.at(path="/public", file="app/index.html")
+GET   /init         controllers.CharacterController.init
+GET   /characters   controllers.CharacterController.index
+GET   /sentences    controllers.SentenceController.index
 
-GET     /api/people/init                   controllers.People.init
-GET     /api/people                 controllers.People.list
-PUT     /api/person/:id/like        controllers.People.like(id: Int)
-
-GET     /api/sentences/init         controllers.Sentence.init
-GET     /api/sentences              controllers.Sentence.list
-
-GET     /*file                      controllers.Assets.at(path="/public", file)
+GET   /*file        controllers.Assets.at(path="/public", file)
