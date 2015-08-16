@@ -18,3 +18,4 @@ bin/
 .sbtserver/
 project/.sbtserver
 project/.sbtserver.lock
+.cache-main
