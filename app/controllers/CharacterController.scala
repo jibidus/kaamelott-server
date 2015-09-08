@@ -20,13 +20,6 @@ class CharacterController @Inject() (sentenceDAO: SentenceDAO, characterDAO: Cha
 
   implicit val character_format = Json.format[Character]
 
-  def init = Action.async { implicit request =>
-    val angharad = Character(1, "Angharad")
-    characterDAO.insert(angharad)
-    sentenceDAO.insert(Sentence(1, "Elle est où la poubellette ?", angharad.id))
-    Future.successful(Ok("db was initialized"))
-  }
-
   def index = Action.async { implicit request =>
     characterDAO.all().map { r => Ok(toJson(r)) }
   }

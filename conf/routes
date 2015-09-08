@@ -3,7 +3,6 @@
 # ~~~~
 
 # Home page
-GET   /init         controllers.CharacterController.init
 GET   /characters   controllers.CharacterController.index
 GET   /sentences    controllers.SentenceController.index
 
