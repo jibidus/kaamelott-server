@@ -13,13 +13,13 @@ libraryDependencies ++= {
   val scalaTestV       = "3.0.0-M1"
   val scalaMockV       = "3.2.2"
   val scalazScalaTestV = "0.2.3"
-  val slickVersion     = "3.0.0"
+  val slickV     	   = "3.0.3"
   Seq(
     "org.scalaz"         %% "scalaz-core"                          % scalazV,
     "com.typesafe.akka"  %% "akka-stream-experimental"             % akkaStreamV,
     "com.typesafe.akka"  %% "akka-http-core-experimental"          % akkaStreamV,
     "com.typesafe.akka"  %% "akka-http-spray-json-experimental"    % akkaStreamV,
-    "com.typesafe.slick" %% "slick"                                % slickVersion,
+    "com.typesafe.slick" %% "slick"                                % slickV,
     "org.slf4j"          %  "slf4j-nop"                            % "1.6.4",
     "com.h2database" 	 %  "h2" 								   % "1.4.188",
     "org.mindrot"        %  "jbcrypt"                              % "0.3m",
