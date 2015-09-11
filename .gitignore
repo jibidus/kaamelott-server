@@ -19,3 +19,4 @@ bin/
 project/.sbtserver
 project/.sbtserver.lock
 .cache-main
+.cache-tests
