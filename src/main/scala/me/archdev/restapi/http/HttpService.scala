@@ -7,11 +7,9 @@ import me.archdev.restapi.utils.CorsSupport
 trait HttpService extends UsersServiceRoute with CharactersServiceRoute with CorsSupport {
 
   val routes =
-    pathPrefix("v1") {
-      corsHandler {
-        usersRoute ~
-          charactersRoute
-      }
+    corsHandler {
+      usersRoute ~
+        charactersRoute
     }
 
 }
