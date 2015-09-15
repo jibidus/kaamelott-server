@@ -1,6 +1,6 @@
 package me.archdev.restapi.services
 
-import me.archdev.restapi.models.Character
+import me.archdev.restapi.models.CharacterEntity
 import org.mindrot.jbcrypt.BCrypt
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -12,6 +12,6 @@ trait CharactersService extends CharacterTable {
 
   import driver.api._
 
-  def getCharacters(): Future[Seq[Character]] = db.run(characters.result)
+  def getCharacters(): Future[Seq[CharacterEntity]] = db.run(characters.result)
 
 }
