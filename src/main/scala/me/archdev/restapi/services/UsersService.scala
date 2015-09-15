@@ -1,6 +1,6 @@
 package me.archdev.restapi.services
 
-import me.archdev.restapi.models.db.UserEntityTable
+import me.archdev.restapi.models.UserEntityTable
 import me.archdev.restapi.models.{ UserEntityUpdate, UserEntity }
 import org.mindrot.jbcrypt.BCrypt
 

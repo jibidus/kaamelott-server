@@ -1,12 +1,9 @@
-package me.archdev.restapi.models.db
+package me.archdev.restapi.models
 
 import scala.concurrent.Future
-
-import me.archdev.restapi.models.Sentence
-import slick.driver.JdbcProfile
 import scala.concurrent.Future
-import scalaz.Tag
 import me.archdev.restapi.utils.DatabaseConfig
+import slick.lifted.ProvenShape.proveShapeOf
 
 trait SentenceTable extends DatabaseConfig {
   import driver.api._

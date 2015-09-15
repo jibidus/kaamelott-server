@@ -1,7 +1,7 @@
-package me.archdev.restapi.models.db
+package me.archdev.restapi.models
 
-import me.archdev.restapi.models.UserEntity
 import me.archdev.restapi.utils.DatabaseConfig
+import slick.lifted.ProvenShape.proveShapeOf
 
 trait UserEntityTable extends DatabaseConfig {
 
