@@ -41,23 +41,6 @@ class UsersServiceTest extends BaseServiceTest with ScalaFutures {
         }
       }
     }
-
-    "retrieve currently logged user" in {
-      Get("/users/me") ~> addHeader("Token", testTokens.find(_.userId.contains(2)).get.token) ~> usersRoute ~> check {
-        responseAs[JsObject] should be(testUsers.find(_.id.contains(2)).get.toJson)
-      }
-    }
-
-    "update currently logged user" in {
-      val newUsername = "MeUpdatedUsername"
-      val requestEntity = HttpEntity(MediaTypes.`application/json`, JsObject("username" -> JsString(newUsername)).toString())
-      Post("/users/me", requestEntity) ~> addHeader("Token", testTokens.find(_.userId.contains(2)).get.token) ~> usersRoute ~> check {
-        responseAs[JsObject] should be(testUsers.find(_.id.contains(2)).get.copy(username = newUsername).toJson)
-        whenReady(getUserById(2)) { result =>
-          result.get.username should be(newUsername)
-        }
-      }
-    }
   }
 
 }
