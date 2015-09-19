@@ -24,6 +24,7 @@ libraryDependencies ++= {
     "com.h2database" 	 %  "h2" 								   % "1.4.188",
     "org.mindrot"        %  "jbcrypt"                              % "0.3m",
     "org.flywaydb"       %  "flyway-core"                          % "3.2.1",
+    "org.json4s" 		 %% "json4s-jackson"  					   % "3.2.11",
     "org.scalatest"      %% "scalatest"                            % scalaTestV       % "it,test",
     "org.scalamock"      %% "scalamock-scalatest-support"          % scalaMockV       % "it,test",
     "org.scalaz"         %% "scalaz-scalacheck-binding"            % scalazV          % "it,test",

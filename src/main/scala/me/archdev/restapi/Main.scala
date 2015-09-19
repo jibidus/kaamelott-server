@@ -18,6 +18,7 @@ object Main extends App with Config with HttpService with Migration {
   override protected implicit val materializer: ActorMaterializer = ActorMaterializer()
 
   migrate()
+  loadInitialData()
 
   Http().bindAndHandle(routes, httpInterface, httpPort)
 }
