@@ -9,6 +9,7 @@ scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf
 
 libraryDependencies ++= {
   val scalazV          = "7.2.0-M1"
+  val akkaV      	   = "2.3.14"
   val akkaStreamV      = "1.0"
   val scalaTestV       = "3.0.0-M1"
   val scalaMockV       = "3.2.2"
@@ -19,8 +20,9 @@ libraryDependencies ++= {
     "com.typesafe.akka"  %% "akka-stream-experimental"             % akkaStreamV,
     "com.typesafe.akka"  %% "akka-http-core-experimental"          % akkaStreamV,
     "com.typesafe.akka"  %% "akka-http-spray-json-experimental"    % akkaStreamV,
+    "com.typesafe.akka"  %% "akka-slf4j" 						   % akkaV,
     "com.typesafe.slick" %% "slick"                                % slickV,
-    "org.slf4j"          %  "slf4j-nop"                            % "1.6.4",
+    "ch.qos.logback" 	 %  "logback-classic" 					   % "1.0.9",
     "com.h2database" 	 %  "h2" 								   % "1.4.188",
     "org.mindrot"        %  "jbcrypt"                              % "0.3m",
     "org.flywaydb"       %  "flyway-core"                          % "3.2.1",

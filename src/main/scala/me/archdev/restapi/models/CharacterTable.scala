@@ -2,17 +2,20 @@ package me.archdev.restapi.models
 
 import me.archdev.restapi.utils.DatabaseConfig
 import slick.lifted.ProvenShape.proveShapeOf
+import scala.concurrent.Future
 
-trait CharacterTable extends DatabaseConfig {
-
+object CharacterTable extends DatabaseConfig {
   import driver.api._
 
   class CharactersTable(tag: Tag) extends Table[Character](tag, "Character") {
-    def id = column[Long]("ID", O.PrimaryKey, O.AutoInc)
+    def code = column[String]("CODE", O.PrimaryKey)
     def name = column[String]("NAME")
 
-    def * = (id, name) <> (Character.tupled, Character.unapply _)
+    def * = (code, name) <> (Character.tupled, Character.unapply _)
   }
 
-  protected val characters = TableQuery[CharactersTable]
+  val characters = TableQuery[CharactersTable]
+
+  def all(): Future[Seq[Character]] = db.run(characters.result)
+
 }
