@@ -12,7 +12,7 @@ import me.archdev.restapi.http.HttpService
 import me.archdev.restapi.models._
 import me.archdev.restapi.models.CharacterTable._
 
-trait LoadInitialData extends Config with DatabaseConfig with HttpService {
+trait LoadInitialData extends DatabaseConfig with HttpService {
   import driver.api._
 
   def loadInitialData() = {

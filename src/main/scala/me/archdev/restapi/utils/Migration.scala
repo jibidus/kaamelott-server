@@ -12,10 +12,10 @@ import me.archdev.restapi.http.HttpService
 import me.archdev.restapi.models._
 import me.archdev.restapi.models.CharacterTable._
 
-trait Migration extends Config with DatabaseConfig {
+trait Migration extends DatabaseConfig {
 
   private val flyway = new Flyway()
-  flyway.setDataSource(databaseUrl, databaseUser, databasePassword)
+  flyway.setDataSource(Config.databaseUrl, Config.databaseUser, Config.databasePassword)
 
   def migrate() = {
     flyway.migrate()
