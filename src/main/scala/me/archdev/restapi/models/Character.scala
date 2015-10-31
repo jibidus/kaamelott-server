@@ -1,3 +1,3 @@
 package me.archdev.restapi.models
 
-case class Character(id: Long, name: String)
+case class Character(code: String, name: String)

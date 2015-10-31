@@ -1,14 +1,19 @@
 package me.archdev
 
-import akka.http.scaladsl.model.{ HttpEntity, MediaTypes }
+import org.scalatest.WordSpec
+import org.scalatest.concurrent.ScalaFutures
+import akka.http.scaladsl.model.HttpEntity
+import akka.http.scaladsl.model.MediaTypes
+import akka.http.scaladsl.model.StatusCodes._
+import akka.http.scaladsl.testkit.ScalatestRouteTest
 import me.archdev.restapi.http.routes.UsersServiceRoute
 import me.archdev.restapi.models.UserEntity
-import org.scalatest.concurrent.ScalaFutures
-
 import spray.json._
-import akka.http.scaladsl.model.StatusCodes._
+import support.DatabaseTest
+import org.scalatest.Matchers
+import me.archdev.restapi.http.HttpService
 
-class UsersServiceTest extends BaseServiceTest with ScalaFutures {
+class UsersServiceTest extends WordSpec with Matchers with HttpService with ScalatestRouteTest with DatabaseTest with ScalaFutures {
   "Users service" should {
     "retrieve users list" in {
       Get("/users") ~> usersRoute ~> check {
