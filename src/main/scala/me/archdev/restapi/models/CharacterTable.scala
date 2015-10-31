@@ -16,6 +16,9 @@ object CharacterTable extends DatabaseConfig {
 
   val characters = TableQuery[CharactersTable]
 
+  def deleteAll(): Future[Int] = db.run(characters.delete)
+
   def all(): Future[Seq[Character]] = db.run(characters.result)
 
+  def count(): Future[Int] = db.run(characters.length.result)
 }
