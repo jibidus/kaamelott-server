@@ -9,7 +9,7 @@ import scala.concurrent.duration._
 import scala.io.Source
 
 import org.json4s._
-import org.json4s.jackson.JsonMethods._
+import org.json4s.native.JsonMethods._
 
 import akka.event.LoggingAdapter
 import me.archdev.restapi.models._

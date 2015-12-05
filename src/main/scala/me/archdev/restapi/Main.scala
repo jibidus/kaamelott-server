@@ -2,23 +2,23 @@ package me.archdev.restapi
 
 import akka.actor.ActorSystem
 import akka.event.{ Logging, LoggingAdapter }
-import akka.http.scaladsl.Http
-import akka.stream.ActorMaterializer
-
-import me.archdev.restapi.http.HttpService
+import akka.actor.{ ActorSystem, Props }
+import akka.io.IO
+import spray.can.Http
 import me.archdev.restapi.utils.{ Migration, Config, LoadInitialData }
-
 import scala.concurrent.ExecutionContext
+import me.archdev.restapi.http.RestInterface
+import akka.util.Timeout
+import scala.concurrent.duration._
 
-object Main extends App with HttpService with Migration with LoadInitialData {
+object Main extends App with Migration with LoadInitialData {
   private implicit val system = ActorSystem()
-
-  override protected implicit val executor: ExecutionContext = system.dispatcher
-  override protected val log: LoggingAdapter = Logging(system, getClass)
-  override protected implicit val materializer: ActorMaterializer = ActorMaterializer()
+  private implicit val executionContext = system.dispatcher
+  private implicit val timeout = Timeout(10.seconds)
 
   migrate()
   loadInitialData()
 
-  Http().bindAndHandle(routes, Config.httpInterface, Config.httpPort)
+  val service = system.actorOf(Props(new RestInterface))
+  IO(Http) ! Http.Bind(service, Config.httpInterface, Config.httpPort)
 }
