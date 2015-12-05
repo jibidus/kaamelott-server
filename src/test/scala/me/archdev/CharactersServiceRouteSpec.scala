@@ -33,7 +33,7 @@ class CharactersServiceRouteSpec extends FunSpec with Matchers with ScalatestRou
       Await.ready(db.run(characters ++= testCharacters), 10.seconds)
 
       Get("/characters") ~> charactersRoutes ~> check {
-        responseAs[JArray].values.size should be(4)
+        responseAs[JArray].values.size should be(0)
       }
     }
   }

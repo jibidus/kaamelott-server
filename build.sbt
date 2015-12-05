@@ -20,24 +20,28 @@ libraryDependencies ++= {
   val scalaMockV       = "3.2.2"
   val scalazScalaTestV = "0.2.3"
   val slickV     	   = "3.0.3"
+  val json4sV		   = "3.3.0.RC6"
   
   Seq(
   
-    "io.spray"           %%   "spray-can"     					   % sprayVersion,
-    "io.spray"           %%   "spray-routing" 					   % sprayVersion,
-    "io.spray"           %%   "spray-testkit" 					   % sprayVersion % "test",
-    "org.json4s" 		 %% "json4s-native" 					   % "3.3.0.RC6",
-    "org.json4s" 		 %% "json4s-ext" 						   % "3.3.0.RC6",
+    "io.spray"           %% "spray-can"     					   % sprayVersion,
+    "io.spray"           %% "spray-routing" 					   % sprayVersion,
+    "org.json4s" 		 %% "json4s-native" 					   % json4sV,
+    "org.json4s" 		 %% "json4s-ext" 						   % json4sV,
+
     "com.typesafe.akka"  %% "akka-slf4j" 						   % akkaV,
-    "com.typesafe.slick" %% "slick"                                % slickV,
     "ch.qos.logback" 	 %  "logback-classic" 					   % "1.0.9",
+
+    "com.typesafe.slick" %% "slick"                                % slickV,
     "com.h2database" 	 %  "h2" 								   % "1.4.188",
-    "org.mindrot"        %  "jbcrypt"                              % "0.3m",
+
     "org.flywaydb"       %  "flyway-core"                          % "3.2.1",
-    "org.scalatest"      %% "scalatest"                            % scalaTestV       % "it,test",
-    "org.scalamock"      %% "scalamock-scalatest-support"          % scalaMockV       % "it,test",
-    "org.scalaz"         %% "scalaz-scalacheck-binding"            % scalazV          % "it,test",
-    "org.typelevel"      %% "scalaz-scalatest"                     % scalazScalaTestV % "it,test"
+
+    "io.spray"           %% "spray-testkit" 					   % sprayVersion 	  % "test",
+    "org.scalatest"      %% "scalatest"                            % scalaTestV       % "test",
+    "org.scalamock"      %% "scalamock-scalatest-support"          % scalaMockV       % "test",
+    "org.scalaz"         %% "scalaz-scalacheck-binding"            % scalazV          % "test",
+    "org.typelevel"      %% "scalaz-scalatest"                     % scalazScalaTestV % "test"
   )
 }
 
@@ -46,25 +50,3 @@ Defaults.itSettings
 scalariformSettings
 Revolver.settings
 enablePlugins(JavaAppPackaging)
-enablePlugins(DockerPlugin)
-
-dockerExposedPorts := Seq(9000)
-
-dockerEntrypoint := Seq("bin/%s" format executableScriptName.value, "-Dconfig.resource=docker.conf")
-
-ScalariformKeys.preferences := ScalariformKeys.preferences.value
-  .setPreference(AlignSingleLineCaseStatements, true)
-  .setPreference(AlignSingleLineCaseStatements.MaxArrowIndent, 100)
-  .setPreference(DoubleIndentClassDeclaration, true)
-
-initialCommands := """|import scalaz._
-                      |import Scalaz._
-                      |import akka.actor._
-                      |import akka.pattern._
-                      |import akka.util._
-                      |import scala.concurrent._
-                      |import scala.concurrent.duration._""".stripMargin
-
-parallelExecution in Test := false
-
-fork in run := true
