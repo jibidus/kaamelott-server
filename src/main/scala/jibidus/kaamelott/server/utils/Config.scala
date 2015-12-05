@@ -1,4 +1,4 @@
-package me.archdev.restapi.utils
+package jibidus.kaamelott.server.utils
 
 import com.typesafe.config.ConfigFactory
 

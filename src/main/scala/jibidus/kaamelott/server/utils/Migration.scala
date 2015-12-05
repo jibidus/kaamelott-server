@@ -1,4 +1,4 @@
-package me.archdev.restapi.utils
+package jibidus.kaamelott.server.utils
 
 import scala.concurrent.Await
 import scala.io.Source
@@ -7,8 +7,8 @@ import org.flywaydb.core.Flyway
 import org.json4s._
 
 import akka.event.LoggingAdapter
-import me.archdev.restapi.models._
-import me.archdev.restapi.models.CharacterTable._
+import jibidus.kaamelott.server.models._
+import jibidus.kaamelott.server.models.CharacterTable._
 
 trait Migration extends DatabaseConfig {
 

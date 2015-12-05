@@ -1,9 +1,10 @@
 import com.typesafe.config._
 import scalariform.formatter.preferences._
 
-name          := """kaamelott-server"""
+name          := "kaamelott-server"
 organization  := "jibidus"
 version       := "0.1-SNAPSHOT"
+
 scalaVersion  := "2.11.7"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 

@@ -1,9 +1,9 @@
-package me.archdev.restapi.http.resources
+package jibidus.kaamelott.server.http.resources
 
 import spray.http.HttpHeaders
 import spray.routing._
 import scala.concurrent.{ ExecutionContext, Future }
-import me.archdev.restapi.http.resources.support.JsonSupport
+import jibidus.kaamelott.server.http.resources.support.JsonSupport
 
 trait BaseResource extends HttpService with JsonSupport {
 
@@ -13,7 +13,7 @@ trait BaseResource extends HttpService with JsonSupport {
     onSuccess(resourceId) { maybeT =>
       maybeT match {
         case Some(t) => completeWithLocationHeader(ifDefinedStatus, t)
-        case None    => complete(ifEmptyStatus, None)
+        case None => complete(ifEmptyStatus, None)
       }
     }
 

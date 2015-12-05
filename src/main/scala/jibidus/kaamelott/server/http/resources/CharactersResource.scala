@@ -1,6 +1,6 @@
-package me.archdev.restapi.http.resources
+package jibidus.kaamelott.server.http.resources
 
-import me.archdev.restapi.services.CharactersService
+import jibidus.kaamelott.server.services.CharactersService
 import org.json4s.JsonDSL._
 import spray.routing._
 

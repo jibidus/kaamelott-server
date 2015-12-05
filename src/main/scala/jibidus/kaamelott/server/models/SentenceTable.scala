@@ -1,10 +1,10 @@
-package me.archdev.restapi.models
+package jibidus.kaamelott.server.models
 
 import scala.concurrent.Future
 import scala.concurrent.Future
-import me.archdev.restapi.utils.DatabaseConfig
+import jibidus.kaamelott.server.utils.DatabaseConfig
 import slick.lifted.ProvenShape.proveShapeOf
-import me.archdev.restapi.models.CharacterTable._
+import jibidus.kaamelott.server.models.CharacterTable._
 
 object SentenceTable extends DatabaseConfig {
   import driver.api._

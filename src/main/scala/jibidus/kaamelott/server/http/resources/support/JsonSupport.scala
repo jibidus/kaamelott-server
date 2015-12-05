@@ -1,4 +1,4 @@
-package me.archdev.restapi.http.resources.support
+package jibidus.kaamelott.server.http.resources.support
 
 import java.text.SimpleDateFormat
 import org.json4s.ext.JodaTimeSerializers

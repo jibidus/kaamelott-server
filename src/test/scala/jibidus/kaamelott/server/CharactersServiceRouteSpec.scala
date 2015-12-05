@@ -1,18 +1,18 @@
-package me.archdev
+package jibidus.kaamelott.server
 
 import org.scalatest.FunSpec
 import spray.testkit.ScalatestRouteTest
 import spray.http.HttpHeaders.Accept
 import spray.http.HttpRequest
-import me.archdev.restapi.http.resources.CharactersResource
+import jibidus.kaamelott.server.http.resources.CharactersResource
 import support.DatabaseTest
 import scala.concurrent.duration._
-import me.archdev.restapi.models.Character
-import me.archdev.restapi.models.CharacterTable.characters
-import me.archdev.restapi.models.CharacterTable
+import jibidus.kaamelott.server.models.Character
+import jibidus.kaamelott.server.models.CharacterTable.characters
+import jibidus.kaamelott.server.models.CharacterTable
 import scala.concurrent.Await
 import org.scalatest.Matchers
-import me.archdev.restapi.utils.Migration
+import jibidus.kaamelott.server.utils.Migration
 import scala.concurrent.ExecutionContext
 import org.json4s.JsonAST._
 

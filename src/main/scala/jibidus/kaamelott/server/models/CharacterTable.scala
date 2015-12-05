@@ -1,6 +1,6 @@
-package me.archdev.restapi.models
+package jibidus.kaamelott.server.models
 
-import me.archdev.restapi.utils.DatabaseConfig
+import jibidus.kaamelott.server.utils.DatabaseConfig
 import slick.lifted.ProvenShape.proveShapeOf
 import scala.concurrent.Future
 

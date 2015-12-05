@@ -1,3 +1,3 @@
-package me.archdev.restapi.models
+package jibidus.kaamelott.server.models
 
 case class Character(code: String, name: String)

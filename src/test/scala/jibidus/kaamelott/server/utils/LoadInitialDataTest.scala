@@ -1,15 +1,13 @@
-package utils
+package jibidus.kaamelott.server.utils
 
 import org.scalatest.FunSpec
-import me.archdev.restapi.utils.LoadInitialData
-import me.archdev.restapi.models.CharacterTable._
-import me.archdev.restapi.models.CharacterTable
-import me.archdev.restapi.models.Character
+import jibidus.kaamelott.server.models.CharacterTable._
+import jibidus.kaamelott.server.models.CharacterTable
+import jibidus.kaamelott.server.models.Character
 import scala.concurrent.Await
 import scala.concurrent.duration._
-import me.archdev.restapi.utils.Migration
 import org.scalatest.BeforeAndAfter
-import support.DatabaseTest
+import jibidus.kaamelott.server.support.DatabaseTest
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.Matchers
 

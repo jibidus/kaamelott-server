@@ -1,4 +1,4 @@
-package me.archdev.restapi.utils
+package jibidus.kaamelott.server.utils
 
 import scala.concurrent._
 import scala.concurrent.Await
@@ -12,8 +12,8 @@ import org.json4s._
 import org.json4s.native.JsonMethods._
 
 import akka.event.LoggingAdapter
-import me.archdev.restapi.models._
-import me.archdev.restapi.models.CharacterTable._
+import jibidus.kaamelott.server.models._
+import jibidus.kaamelott.server.models.CharacterTable._
 
 trait LoadInitialData extends DatabaseConfig {
   import driver.api._

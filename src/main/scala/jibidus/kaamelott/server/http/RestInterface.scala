@@ -1,6 +1,6 @@
-package me.archdev.restapi.http
+package jibidus.kaamelott.server.http
 
-import me.archdev.restapi.http.resources.CharactersResource
+import jibidus.kaamelott.server.http.resources.CharactersResource
 import spray.routing._
 
 import scala.concurrent.ExecutionContext

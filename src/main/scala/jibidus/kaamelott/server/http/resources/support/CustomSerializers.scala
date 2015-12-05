@@ -1,4 +1,4 @@
-package me.archdev.restapi.http.resources.support
+package jibidus.kaamelott.server.http.resources.support
 
 import java.sql.Timestamp
 import org.json4s.CustomSerializer
@@ -12,7 +12,7 @@ object CustomSerializers {
 case object CustomTimestampSerializer extends CustomSerializer[Timestamp](format =>
   ({
     case JInt(x) => new Timestamp(x.longValue * 1000)
-    case JNull   => null
+    case JNull => null
   },
     {
       case date: Timestamp => JInt(date.getTime / 1000)

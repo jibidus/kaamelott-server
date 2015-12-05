@@ -1,6 +1,6 @@
-package me.archdev.restapi.services
+package jibidus.kaamelott.server.services
 
-import me.archdev.restapi.models.CharacterTable
+import jibidus.kaamelott.server.models.CharacterTable
 
 object CharactersService extends CharactersService
 

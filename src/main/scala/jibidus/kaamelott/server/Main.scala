@@ -1,4 +1,4 @@
-package me.archdev.restapi
+package jibidus.kaamelott.server
 
 import scala.concurrent.duration.DurationInt
 
@@ -6,10 +6,10 @@ import akka.actor.ActorSystem
 import akka.actor.Props
 import akka.io.IO
 import akka.util.Timeout
-import me.archdev.restapi.http.RestInterface
-import me.archdev.restapi.utils.Config
-import me.archdev.restapi.utils.LoadInitialData
-import me.archdev.restapi.utils.Migration
+import jibidus.kaamelott.server.http.RestInterface
+import jibidus.kaamelott.server.utils.Config
+import jibidus.kaamelott.server.utils.LoadInitialData
+import jibidus.kaamelott.server.utils.Migration
 import spray.can.Http
 
 object Main extends App with Migration with LoadInitialData {
