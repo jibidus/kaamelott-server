@@ -1,10 +1,10 @@
-package me.archdev.restapi.http.routes
+package me.archdev.restapi.http.resources
 
 import me.archdev.restapi.services.CharactersService
 import org.json4s.JsonDSL._
 import spray.routing._
 
-trait CharactersServiceRoute extends CharactersService with BaseServiceRoute {
+trait CharactersResource extends CharactersService with BaseResource {
 
   val charactersRoutes = pathPrefix("characters") {
     pathEndOrSingleSlash {

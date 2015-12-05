@@ -1,7 +1,6 @@
-package me.archdev.restapi.utils
+package me.archdev.restapi.http.resources.support
 
 import java.text.SimpleDateFormat
-
 import org.json4s.ext.JodaTimeSerializers
 import org.json4s.{ DefaultFormats, Formats }
 import spray.httpx.Json4sSupport

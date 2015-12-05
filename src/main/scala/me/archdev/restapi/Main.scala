@@ -1,15 +1,16 @@
 package me.archdev.restapi
 
+import scala.concurrent.duration.DurationInt
+
 import akka.actor.ActorSystem
-import akka.event.{ Logging, LoggingAdapter }
-import akka.actor.{ ActorSystem, Props }
+import akka.actor.Props
 import akka.io.IO
-import spray.can.Http
-import me.archdev.restapi.utils.{ Migration, Config, LoadInitialData }
-import scala.concurrent.ExecutionContext
-import me.archdev.restapi.http.RestInterface
 import akka.util.Timeout
-import scala.concurrent.duration._
+import me.archdev.restapi.http.RestInterface
+import me.archdev.restapi.utils.Config
+import me.archdev.restapi.utils.LoadInitialData
+import me.archdev.restapi.utils.Migration
+import spray.can.Http
 
 object Main extends App with Migration with LoadInitialData {
   private implicit val system = ActorSystem()

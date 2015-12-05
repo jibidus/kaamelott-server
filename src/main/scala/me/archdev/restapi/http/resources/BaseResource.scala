@@ -1,12 +1,11 @@
-package me.archdev.restapi.http.routes
+package me.archdev.restapi.http.resources
 
-import me.archdev.restapi.utils.JsonSupport
 import spray.http.HttpHeaders
 import spray.routing._
-
 import scala.concurrent.{ ExecutionContext, Future }
+import me.archdev.restapi.http.resources.support.JsonSupport
 
-trait BaseServiceRoute extends HttpService with JsonSupport {
+trait BaseResource extends HttpService with JsonSupport {
 
   implicit val executionContext: ExecutionContext
 

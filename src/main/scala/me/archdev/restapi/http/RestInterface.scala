@@ -1,6 +1,6 @@
 package me.archdev.restapi.http
 
-import me.archdev.restapi.http.routes.CharactersServiceRoute
+import me.archdev.restapi.http.resources.CharactersResource
 import spray.routing._
 
 import scala.concurrent.ExecutionContext
@@ -14,4 +14,4 @@ class RestInterface(implicit val executionContext: ExecutionContext) extends Htt
 
 }
 
-trait Resources extends CharactersServiceRoute
+trait Resources extends CharactersResource

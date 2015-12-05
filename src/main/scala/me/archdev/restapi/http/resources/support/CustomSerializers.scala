@@ -1,9 +1,9 @@
-package me.archdev.restapi.utils
+package me.archdev.restapi.http.resources.support
 
 import java.sql.Timestamp
-
 import org.json4s.CustomSerializer
 import org.json4s.JsonAST.{ JInt, JNull }
+import scala.math.BigInt.long2bigInt
 
 object CustomSerializers {
   val all = List(CustomTimestampSerializer)
