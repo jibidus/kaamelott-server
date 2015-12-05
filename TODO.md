@@ -1,5 +1,4 @@
-- Remplacer spray-json par json4s-jackson.
-- Modifier nom du package 
+- Corriger le test CharactersResourceSpec
 - Upgrade akkaStreamV to 1.0-M2 (compilation issue)
 - Ajouter des tests
 - Compléter le modèle
