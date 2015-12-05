@@ -7,7 +7,12 @@ version       := "0.1-SNAPSHOT"
 scalaVersion  := "2.11.7"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
+resolvers ++= Seq(
+  "spray repo" at "http://repo.spray.io/"
+)
+
 libraryDependencies ++= {
+  val sprayVersion 	   = "1.3.3"
   val scalazV          = "7.2.0-M1"
   val akkaV      	   = "2.3.14"
   val akkaStreamV      = "1.0"
@@ -15,23 +20,24 @@ libraryDependencies ++= {
   val scalaMockV       = "3.2.2"
   val scalazScalaTestV = "0.2.3"
   val slickV     	   = "3.0.3"
+  
   Seq(
-    "org.scalaz"         %% "scalaz-core"                          % scalazV,
-    "com.typesafe.akka"  %% "akka-stream-experimental"             % akkaStreamV,
-    "com.typesafe.akka"  %% "akka-http-core-experimental"          % akkaStreamV,
-    "com.typesafe.akka"  %% "akka-http-spray-json-experimental"    % akkaStreamV,
+  
+    "io.spray"           %%   "spray-can"     					   % sprayVersion,
+    "io.spray"           %%   "spray-routing" 					   % sprayVersion,
+    "io.spray"           %%   "spray-testkit" 					   % sprayVersion % "test",
+    "org.json4s" 		 %% "json4s-native" 					   % "3.3.0.RC6",
+    "org.json4s" 		 %% "json4s-ext" 						   % "3.3.0.RC6",
     "com.typesafe.akka"  %% "akka-slf4j" 						   % akkaV,
     "com.typesafe.slick" %% "slick"                                % slickV,
     "ch.qos.logback" 	 %  "logback-classic" 					   % "1.0.9",
     "com.h2database" 	 %  "h2" 								   % "1.4.188",
     "org.mindrot"        %  "jbcrypt"                              % "0.3m",
     "org.flywaydb"       %  "flyway-core"                          % "3.2.1",
-    "org.json4s" 		 %% "json4s-jackson"  					   % "3.2.11",
     "org.scalatest"      %% "scalatest"                            % scalaTestV       % "it,test",
     "org.scalamock"      %% "scalamock-scalatest-support"          % scalaMockV       % "it,test",
     "org.scalaz"         %% "scalaz-scalacheck-binding"            % scalazV          % "it,test",
-    "org.typelevel"      %% "scalaz-scalatest"                     % scalazScalaTestV % "it,test",
-    "com.typesafe.akka"  %% "akka-http-testkit-experimental"       % akkaStreamV      % "it,test"
+    "org.typelevel"      %% "scalaz-scalatest"                     % scalazScalaTestV % "it,test"
   )
 }
 
