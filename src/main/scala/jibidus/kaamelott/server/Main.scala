@@ -1,16 +1,13 @@
 package jibidus.kaamelott.server
 
-import scala.concurrent.duration.DurationInt
-
-import akka.actor.ActorSystem
-import akka.actor.Props
+import akka.actor.{ActorSystem, Props}
 import akka.io.IO
 import akka.util.Timeout
 import jibidus.kaamelott.server.http.RestInterface
-import jibidus.kaamelott.server.utils.Config
-import jibidus.kaamelott.server.utils.LoadInitialData
-import jibidus.kaamelott.server.utils.Migration
+import jibidus.kaamelott.server.utils.{Config, LoadInitialData, Migration}
 import spray.can.Http
+
+import scala.concurrent.duration.DurationInt
 
 object Main extends App with Migration with LoadInitialData {
   private implicit val system = ActorSystem()

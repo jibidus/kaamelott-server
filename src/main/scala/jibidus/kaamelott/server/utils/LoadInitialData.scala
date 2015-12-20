@@ -1,19 +1,14 @@
 package jibidus.kaamelott.server.utils
 
-import scala.concurrent._
-import scala.concurrent.Await
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
-import concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration._
-import scala.io.Source
-
+import jibidus.kaamelott.server.models.CharacterTable._
+import jibidus.kaamelott.server.models._
 import org.json4s._
 import org.json4s.native.JsonMethods._
 
-import akka.event.LoggingAdapter
-import jibidus.kaamelott.server.models._
-import jibidus.kaamelott.server.models.CharacterTable._
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.{Await, Future}
+import scala.concurrent.duration._
+import scala.io.Source
 
 trait LoadInitialData extends DatabaseConfig {
   import driver.api._

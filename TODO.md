@@ -1,5 +1,3 @@
-- Corriger le test CharactersResourceSpec
-- Supprimer les imports inutils
 - Multiple dependencies with the same organization/name but different versions
 - Format build.sbt
 - Upgrade akkaStreamV to 1.0-M2 (compilation issue)

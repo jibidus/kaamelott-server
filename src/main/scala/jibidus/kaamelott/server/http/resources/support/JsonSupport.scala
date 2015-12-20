@@ -1,8 +1,9 @@
 package jibidus.kaamelott.server.http.resources.support
 
 import java.text.SimpleDateFormat
+
 import org.json4s.ext.JodaTimeSerializers
-import org.json4s.{ DefaultFormats, Formats }
+import org.json4s.{DefaultFormats, Formats}
 import spray.httpx.Json4sSupport
 
 trait JsonSupport extends Json4sSupport {

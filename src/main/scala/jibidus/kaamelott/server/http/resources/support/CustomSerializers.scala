@@ -1,8 +1,10 @@
 package jibidus.kaamelott.server.http.resources.support
 
 import java.sql.Timestamp
+
 import org.json4s.CustomSerializer
-import org.json4s.JsonAST.{ JInt, JNull }
+import org.json4s.JsonAST.{JInt, JNull}
+
 import scala.math.BigInt.long2bigInt
 
 object CustomSerializers {

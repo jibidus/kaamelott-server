@@ -2,6 +2,7 @@ package jibidus.kaamelott.server.models
 
 import jibidus.kaamelott.server.utils.DatabaseConfig
 import slick.lifted.ProvenShape.proveShapeOf
+
 import scala.concurrent.Future
 
 object CharacterTable extends DatabaseConfig {

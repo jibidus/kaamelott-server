@@ -1,10 +1,10 @@
 package jibidus.kaamelott.server.models
 
-import scala.concurrent.Future
-import scala.concurrent.Future
+import jibidus.kaamelott.server.models.CharacterTable._
 import jibidus.kaamelott.server.utils.DatabaseConfig
 import slick.lifted.ProvenShape.proveShapeOf
-import jibidus.kaamelott.server.models.CharacterTable._
+
+import scala.concurrent.Future
 
 object SentenceTable extends DatabaseConfig {
   import driver.api._

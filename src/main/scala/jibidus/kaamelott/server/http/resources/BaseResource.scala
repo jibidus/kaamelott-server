@@ -1,9 +1,10 @@
 package jibidus.kaamelott.server.http.resources
 
+import jibidus.kaamelott.server.http.resources.support.JsonSupport
 import spray.http.HttpHeaders
 import spray.routing._
-import scala.concurrent.{ ExecutionContext, Future }
-import jibidus.kaamelott.server.http.resources.support.JsonSupport
+
+import scala.concurrent.{ExecutionContext, Future}
 
 trait BaseResource extends HttpService with JsonSupport {
 
