@@ -16,12 +16,8 @@ import jibidus.kaamelott.server.utils.Migration
 trait DatabaseTest extends Suite with Migration with BeforeAndAfter {
   protected val log: LoggingAdapter = NoLogging
 
-  import driver.api._
-
-  reloadSchema()
-
   before {
-    Await.ready(db.run(characters.delete), 10.seconds)
+    reloadSchema()
   }
 
 }
