@@ -46,8 +46,11 @@ libraryDependencies ++= {
   )
 }
 
+parallelExecution := false
+
 lazy val root = project.in(file(".")).configs(IntegrationTest)
 Defaults.itSettings
 scalariformSettings
 Revolver.settings
 enablePlugins(JavaAppPackaging)
+
