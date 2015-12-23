@@ -6,13 +6,14 @@ import jibidus.kaamelott.server.support.DatabaseTest
 import org.scalatest.{FunSpec, Matchers}
 import org.scalatest.concurrent.ScalaFutures
 
-class LoadInitialDataTest extends FunSpec with Matchers with DatabaseTest with LoadInitialData with ScalaFutures {
+class LoadInitialDataTest extends FunSpec with LoadInitialData with Matchers with DatabaseTest with ScalaFutures {
 
   import driver.api._
 
-  describe("LoadInitialData") {
+  describe("#loadInitialData") {
 
     it("should load some characters") {
+      // TODO Move into before block
       loadInitialData
       CharacterTable.count.futureValue should not equal 0
     }
