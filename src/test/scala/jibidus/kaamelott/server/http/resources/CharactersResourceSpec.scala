@@ -1,27 +1,22 @@
-package jibidus.kaamelott.server
+package jibidus.kaamelott.server.http.resources
 
-import jibidus.kaamelott.server.http.resources.CharactersResource
 import jibidus.kaamelott.server.models.Character
 import jibidus.kaamelott.server.models.CharacterTable.characters
-import jibidus.kaamelott.server.utils.Migration
+import jibidus.kaamelott.server.support.DatabaseTest
 import org.json4s.JsonAST._
-import org.scalatest.{BeforeAndAfter, FunSpec, Matchers}
+import org.scalatest.{ BeforeAndAfter, FunSpec, Matchers }
 import spray.testkit.ScalatestRouteTest
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-class CharactersResourceSpec extends FunSpec with BeforeAndAfter with Matchers with ScalatestRouteTest with CharactersResource with Migration {
-
-  import driver.api._
+class CharactersResourceSpec extends FunSpec with BeforeAndAfter with Matchers with ScalatestRouteTest with CharactersResource with DatabaseTest {
 
   implicit val executionContext = system.dispatcher
 
   def actorRefFactory = system
 
-  before {
-    reloadSchema()
-  }
+  import driver.api._
 
   describe("Characters routes") {
 
