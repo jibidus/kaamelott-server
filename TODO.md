@@ -1,6 +1,5 @@
 - Multiple dependencies with the same organization/name but different versions
 - Upgrade akkaStreamV to 1.0-M2 (compilation issue)
-- Ajouter des tests
 - Compléter le modèle
 - Compléter load initial data avec les autres modèles
 - Utiliser IntelliJ
