@@ -6,21 +6,22 @@ import jibidus.kaamelott.server.support.DatabaseTest
 import org.scalatest.concurrent.ScalaFutures
 import org.scalatest.{Matchers, FunSpec}
 
-class CharactersServiceTests extends FunSpec with Matchers with DatabaseTest with CharactersService with ScalaFutures {
+// TODO Is this test necessary (CharactersResourceSpec do the job) ?
+class CharactersServiceTests extends FunSpec with CharactersService with Matchers with DatabaseTest with ScalaFutures {
 
   import driver.api._
 
   describe("#getCharacters") {
 
-    // TODO Ajouter before
-
-    it("should return fed characters") {
-      db.run(characters += Character("code", "name"))
-      getCharacters().futureValue should equal(Seq(Character("code", "name")))
-    }
 
     it("should get all characters") {
-      // TODO
+      // TODO To implement
+    }
+
+    it("should return characters well fed") {
+      // TODO Move into before block
+      db.run(characters += Character("code", "name"))
+      getCharacters().futureValue should equal(Seq(Character("code", "name")))
     }
 
   }
