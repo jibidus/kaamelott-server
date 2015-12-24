@@ -31,7 +31,7 @@ libraryDependencies ++= {
     "org.json4s" %% "json4s-ext" % json4sV,
 
     "com.typesafe.akka" %% "akka-slf4j" % akkaV,
-    "ch.qos.logback" % "logback-classic" % "1.0.9",
+    "ch.qos.logback" % "logback-classic" % "1.1.3",
 
     "com.typesafe.slick" %% "slick" % slickV,
     "com.h2database" % "h2" % "1.4.188",

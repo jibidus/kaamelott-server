@@ -4,6 +4,7 @@ import jibidus.kaamelott.server.models.CharacterTable._
 import jibidus.kaamelott.server.models._
 import org.json4s._
 import org.json4s.native.JsonMethods._
+import org.slf4j.LoggerFactory
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{Await, Future}
@@ -12,6 +13,8 @@ import scala.io.Source
 
 trait LoadInitialData extends DatabaseConfig {
   import driver.api._
+
+  val logger = LoggerFactory.getLogger(this.getClass)
 
   def loadInitialData(): Option[Future[Option[Boolean]]] = {
     val count = Await.result(CharacterTable.count(), 10.seconds)
@@ -24,7 +27,7 @@ trait LoadInitialData extends DatabaseConfig {
     implicit val formats = DefaultFormats
     val json = parse(lines)
     val new_characters = json.extract[Seq[Character]]
-    println("Load initial data with " + new_characters.size + " character(s)")
+    logger.info("Load initial data with {} character(s)", new_characters.size)
 
     Some(Future {
       for {
