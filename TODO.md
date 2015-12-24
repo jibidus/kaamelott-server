@@ -1,4 +1,10 @@
+- Migrate to spring-data-rest
+- Admin : lightadmin
+- sbt test reformatte les fichiers (avec des espaces autour des acolades) !!
 - Multiple dependencies with the same organization/name but different versions
+- sbt est configuré avec ScalaStyle Vs IntelliJ
+- Epurer la config dans /project/
+- Idem avec "activator evicted"
 - Upgrade akkaStreamV to 1.0-M2 (compilation issue)
 - Compléter le modèle
 - Compléter load initial data avec les autres modèles
