@@ -18,3 +18,5 @@ bin/
 .cache-main
 .cache-tests
 /bin/
+.gradle/
+build/
