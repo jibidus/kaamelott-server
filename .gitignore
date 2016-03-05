@@ -15,10 +15,6 @@ dist
 /.settings
 .cache
 bin/
-.sbtserver/
-project/.sbtserver
-project/.sbtserver.lock
 .cache-main
 .cache-tests
-/bin/
 /bin/
