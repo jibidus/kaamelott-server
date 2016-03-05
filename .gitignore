@@ -5,10 +5,7 @@ target
 tmp
 .history
 dist
-/.idea
-/*.iml
 /out
-/.idea_modules
 /.classpath
 /.project
 /RUNNING_PID
@@ -20,3 +17,10 @@ bin/
 /bin/
 .gradle/
 build/
+
+# IntelliJ
+.idea
+.idea_modules
+*.ipr
+*.iws
+*.iml
