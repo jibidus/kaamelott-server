@@ -1,14 +1,10 @@
 - Migrate to spring-data-rest
+    * Liquibase pour la migration
+    * Hibernate ?
+    * Lombock à la place des getters
+    * Deploy on Heroku
+    * CI
+    * slf4j + logback
+    * Autoreload
+    * BUG : impossible de voir episode.number et book (dans API REST)
 - Admin : lightadmin
-- sbt test reformatte les fichiers (avec des espaces autour des acolades) !!
-- Multiple dependencies with the same organization/name but different versions
-- sbt est configuré avec ScalaStyle Vs IntelliJ
-- Epurer la config dans /project/
-- Idem avec "activator evicted"
-- Upgrade akkaStreamV to 1.0-M2 (compilation issue)
-- Compléter le modèle
-- Compléter load initial data avec les autres modèles
-- Utiliser IntelliJ
-- [warn] application - Logger configuration in conf files is deprecated and has no effect. Use a logback configuration file instead
-- Voir s'il y a des choses interessantes ici : https://gagnechris.wordpress.com/2013/09/15/building-restful-apis-with-scala-using-spray/
-- Remplacer Spray par Vert.x ?
