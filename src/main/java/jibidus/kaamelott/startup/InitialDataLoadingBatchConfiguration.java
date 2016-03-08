@@ -3,6 +3,7 @@ package jibidus.kaamelott.startup;
 import jibidus.kaamelott.CharacterRepository;
 import jibidus.kaamelott.EpisodeRepository;
 import jibidus.kaamelott.SentenceRepository;
+import lombok.extern.apachecommons.CommonsLog;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.batch.core.*;
@@ -21,9 +22,8 @@ import java.util.List;
 
 @Configuration
 @EnableBatchProcessing
+@CommonsLog
 class InitialDataLoadingBatchConfiguration {
-
-    private Log log = LogFactory.getLog(ApplicationStartup.class);
 
     @Autowired
     public JobBuilderFactory jobBuilderFactory;

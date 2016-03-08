@@ -1,8 +1,13 @@
 package jibidus.kaamelott;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Sentence {
 
     @Id
@@ -22,36 +27,4 @@ public class Sentence {
             @JoinColumn(name = "episode_number", referencedColumnName = "number")
     })
     private Episode episode;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public Character getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(Character character) {
-        this.character = character;
-    }
-
-    public Episode getEpisode() {
-        return episode;
-    }
-
-    public void setEpisode(Episode episode) {
-        this.episode = episode;
-    }
 }
