@@ -51,7 +51,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-batch")
     compile("org.springframework.boot:spring-boot-starter-batch")
     compile("com.h2database:h2")
+
     provided("org.projectlombok:lombok:1.16.8")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("com.jayway.jsonpath:json-path:0.8.1")
     testCompile("junit:junit")
 }
 

@@ -1,7 +1,12 @@
 package jibidus.kaamelott.startup;
 
-import jibidus.kaamelott.Character;
-import jibidus.kaamelott.*;
+import jibidus.kaamelott.character.Character;
+import jibidus.kaamelott.character.CharacterRepository;
+import jibidus.kaamelott.episode.Episode;
+import jibidus.kaamelott.episode.EpisodeId;
+import jibidus.kaamelott.episode.EpisodeRepository;
+import jibidus.kaamelott.sentence.Sentence;
+import jibidus.kaamelott.sentence.SentenceRepository;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.data.RepositoryItemWriter;
@@ -63,9 +68,9 @@ class SentencesLoadingBatchConfiguration {
                     Character character = characterRepository.findOne(properties.getProperty("character_code"));
                     sentence.setCharacter(character);
 
-                    EpisodeId episodeId = new EpisodeId();
-                    episodeId.setBook(properties.getProperty("episode_book"));
-                    episodeId.setNumber(Integer.valueOf(properties.getProperty("episode_number")));
+                    String book = properties.getProperty("episode_book");
+                    int number = Integer.valueOf(properties.getProperty("episode_number"));
+                    EpisodeId episodeId = new EpisodeId(book, number);
                     Episode episode = episodeRepository.findOne(episodeId);
                     sentence.setEpisode(episode);
 

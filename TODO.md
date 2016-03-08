@@ -1,3 +1,4 @@
+- Prevent initial data loading during tests
 - Liquibase pour la migration
 - Hibernate ?
 - Lombock à la place des getters

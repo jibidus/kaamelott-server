@@ -1,9 +1,7 @@
 package jibidus.kaamelott.startup;
 
-import jibidus.kaamelott.CharacterRepository;
+import jibidus.kaamelott.character.CharacterRepository;
 import lombok.extern.apachecommons.CommonsLog;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.launch.JobLauncher;

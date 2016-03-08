@@ -1,13 +1,15 @@
-package jibidus.kaamelott;
+package jibidus.kaamelott.sentence;
 
+import jibidus.kaamelott.character.Character;
+import jibidus.kaamelott.episode.Episode;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@NoArgsConstructor
 public class Sentence {
 
     @Id
@@ -28,7 +30,9 @@ public class Sentence {
     })
     private Episode episode;
 
-    public Sentence() {
-        super();
+    public Sentence(Character character, Episode episode, String text) {
+        this.character = character;
+        this.episode = episode;
+        this.text = text;
     }
 }

@@ -1,7 +1,7 @@
 package jibidus.kaamelott.startup;
 
-import jibidus.kaamelott.Character;
-import jibidus.kaamelott.CharacterRepository;
+import jibidus.kaamelott.character.Character;
+import jibidus.kaamelott.character.CharacterRepository;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.data.RepositoryItemWriter;

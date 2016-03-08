@@ -1,11 +1,9 @@
 package jibidus.kaamelott.startup;
 
-import jibidus.kaamelott.CharacterRepository;
-import jibidus.kaamelott.EpisodeRepository;
-import jibidus.kaamelott.SentenceRepository;
+import jibidus.kaamelott.character.CharacterRepository;
+import jibidus.kaamelott.episode.EpisodeRepository;
+import jibidus.kaamelott.sentence.SentenceRepository;
 import lombok.extern.apachecommons.CommonsLog;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
