@@ -27,4 +27,8 @@ public class Sentence {
             @JoinColumn(name = "episode_number", referencedColumnName = "number")
     })
     private Episode episode;
+
+    public Sentence() {
+        super();
+    }
 }
