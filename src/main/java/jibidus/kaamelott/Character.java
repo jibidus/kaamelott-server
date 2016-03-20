@@ -1,14 +1,14 @@
 package jibidus.kaamelott;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
 @Data
+@AllArgsConstructor
 public class Character {
 
     @Id
@@ -17,10 +17,5 @@ public class Character {
 
     public Character() {
         super();
-    }
-
-    public Character(String code, String name) {
-        this.code = code;
-        this.name = name;
     }
 }

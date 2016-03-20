@@ -1,5 +1,6 @@
 package jibidus.kaamelott;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import javax.persistence.IdClass;
 @IdClass(EpisodeId.class)
 @Entity
 @Data
+@AllArgsConstructor
 public class Episode {
 
     @Id
@@ -20,4 +22,8 @@ public class Episode {
     private int number;
 
     private String title;
+
+    public Episode() {
+        super();
+    }
 }
