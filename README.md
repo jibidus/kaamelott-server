@@ -7,11 +7,14 @@
 
 # Start server in localhost
 - Run application
+```shell
+$ ./gradlew bootRun
 ```
-./gradlew bootRun
-```
+- Go to `http://localhost:8080`
 
-# Deploy master to Heroku
-```
-git push heroku master
+# Deploy to Heroku
+```shell
+$ heroku apps:create my-app-name
+$ heroku addons:create heroku-postgresql:hobby-dev
+$ git push heroku master
 ```
