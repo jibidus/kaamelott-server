@@ -50,6 +50,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-batch")
     compile("org.springframework.boot:spring-boot-starter-batch")
+    // TODO Depends on active profile
+    compile('org.postgresql:postgresql:9.4.1212')
     compile("com.h2database:h2")
 
     provided("org.projectlombok:lombok:1.16.8")

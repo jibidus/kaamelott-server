@@ -4,9 +4,14 @@
 
 # Prerequisites
 - Java 8
-- Activator
 
-# Run application
+# Start server in localhost
+- Run application
 ```
 ./gradlew bootRun
+```
+
+# Deploy master to Heroku
+```
+git push heroku master
 ```
