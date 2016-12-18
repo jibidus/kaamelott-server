@@ -17,6 +17,7 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 class EpisodesLoadingBatchConfiguration {
 
+    public static final String STEP_ID = "episodesLoadingStep";
     @Autowired
     private EpisodeRepository episodeRepository;
 
@@ -25,7 +26,7 @@ class EpisodesLoadingBatchConfiguration {
 
     @Bean
     public Step episodesLoadingStep() {
-        return stepBuilderFactory.get("episodesLoadingStep")
+        return stepBuilderFactory.get(STEP_ID)
                 .<Episode, Episode>chunk(10)
                 .reader(reader())
                 .writer(writer())

@@ -26,6 +26,7 @@ import java.util.Properties;
 @Configuration
 class SentencesLoadingBatchConfiguration {
 
+    public static final String STEP_ID = "sentencesLoadingStep";
     @Autowired
     private SentenceRepository sentenceRepository;
 
@@ -40,7 +41,7 @@ class SentencesLoadingBatchConfiguration {
 
     @Bean
     public Step sentencesLoadingStep() {
-        return stepBuilderFactory.get("sentencesLoadingStep")
+        return stepBuilderFactory.get(STEP_ID)
                 .<Sentence, Sentence>chunk(10)
                 .reader(reader())
                 .writer(writer())

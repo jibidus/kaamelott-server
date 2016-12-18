@@ -17,6 +17,7 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 class CharactersLoadingBatchConfiguration {
 
+    public static final String STEP_ID = "charactersLoadingStep";
     @Autowired
     private CharacterRepository characterRepository;
 
@@ -25,7 +26,7 @@ class CharactersLoadingBatchConfiguration {
 
     @Bean
     public Step charactersLoadingStep() {
-        return stepBuilderFactory.get("charactersLoadingStep")
+        return stepBuilderFactory.get(STEP_ID)
                 .<Character, Character>chunk(10)
                 .reader(reader())
                 .writer(writer())

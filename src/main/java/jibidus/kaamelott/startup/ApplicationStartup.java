@@ -6,6 +6,7 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ public class ApplicationStartup implements ApplicationListener<ContextRefreshedE
     private JobLauncher jobLauncher;
 
     @Autowired
+    @Qualifier(InitialDataLoadingBatchConfiguration.JOB_ID)
     private Job loadInitialData;
 
     @Autowired

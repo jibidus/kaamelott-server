@@ -23,6 +23,8 @@ import java.util.List;
 @CommonsLog
 class InitialDataLoadingBatchConfiguration {
 
+    public static final String JOB_ID = "loadInitialData";
+
     @Autowired
     public JobBuilderFactory jobBuilderFactory;
 
@@ -39,20 +41,20 @@ class InitialDataLoadingBatchConfiguration {
     private SentenceRepository sentenceRepository;
 
     @Autowired
-    @Qualifier("charactersLoadingStep")
+    @Qualifier(CharactersLoadingBatchConfiguration.STEP_ID)
     private Step charactersLoadingStep;
 
     @Autowired
-    @Qualifier("episodesLoadingStep")
+    @Qualifier(EpisodesLoadingBatchConfiguration.STEP_ID)
     private Step episodesLoadingStep;
 
     @Autowired
-    @Qualifier("sentencesLoadingStep")
+    @Qualifier(SentencesLoadingBatchConfiguration.STEP_ID)
     private Step sentencesLoadingStep;
 
     @Bean
     public Job loadInitialData() {
-        return jobBuilderFactory.get("loadInitialData")
+        return jobBuilderFactory.get(JOB_ID)
                 .listener(listener())
                 .start(charactersLoadingStep)
                 .next(episodesLoadingStep)
@@ -62,7 +64,7 @@ class InitialDataLoadingBatchConfiguration {
 
     public JobExecutionDecider contidion() {
         return (jobExecution, stepExecution) ->
-        sentenceRepository.count() == 0 ? FlowExecutionStatus.COMPLETED : FlowExecutionStatus.FAILED;
+                sentenceRepository.count() == 0 ? FlowExecutionStatus.COMPLETED : FlowExecutionStatus.FAILED;
     }
 
     @Bean
