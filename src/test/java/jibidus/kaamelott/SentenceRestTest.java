@@ -38,7 +38,7 @@ public class SentenceRestTest extends AbstractRestTest {
     public void getSingleSentence() throws Exception {
         mockMvc.perform(get("/sentences/" + sentence.getId()))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/hal+json"))
+                .andExpect(content().contentType("application/hal+json;charset=UTF-8"))
                 .andExpect(jsonPath("text").value(sentence.getText()));
     }
 

@@ -30,7 +30,7 @@ public class CharacterRestTest extends AbstractRestTest {
     public void getSingleCharacter() throws Exception {
         mockMvc.perform(get("/characters/" + character.getCode()))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/hal+json"))
+                .andExpect(content().contentType("application/hal+json;charset=UTF-8"))
                 .andExpect(jsonPath("name").value(character.getName()));
     }
 

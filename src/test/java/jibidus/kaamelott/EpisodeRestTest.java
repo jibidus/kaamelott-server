@@ -30,7 +30,7 @@ public class EpisodeRestTest extends AbstractRestTest {
     public void getSingleEpisode() throws Exception {
         mockMvc.perform(get("/episodes/" + episode.getId().toString()))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType("application/hal+json"))
+                .andExpect(content().contentType("application/hal+json;charset=UTF-8"))
                 .andExpect(jsonPath("number").value(episode.getNumber()));
     }
 }
