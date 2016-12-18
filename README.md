@@ -18,3 +18,16 @@ $ heroku apps:create my-app-name
 $ heroku addons:create heroku-postgresql:hobby-dev
 $ git push heroku master
 ```
+
+# Start production in localhost with postgresql in Docker container
+- Start PostgreSQL Docker container
+```shell
+$ docker run --name kaamelott-server-postgres -e POSTGRES_USER=kaamelott -e POSTGRES_PASSWORD=kaamelott -p 5432:5432 -d postgres:alpine
+```
+
+-  Run application
+```shell
+$ export JDBC_DATABASE_URL=jdbc:postgresql://[container IP]:5432/kaamelott?user=kaamelott&password=kaamelott
+$ SPRING_PROFILES_ACTIVE=production ./gradlew bootRun
+```
+
