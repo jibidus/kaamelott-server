@@ -1,10 +1,7 @@
 - Prevent initial data loading during tests
 - Liquibase pour la migration
-- Hibernate ?
-- Lombock à la place des getters
-- Deploy on Heroku
-- Code quality (coverage + quality)
+- Code quality (coverage + SonarQube)
 - slf4j + logback
-- Autoreload
+- AutoReload with spring loaded
 - BUG : impossible de voir episode.number et book (dans API REST)
 - Admin : lightadmin
