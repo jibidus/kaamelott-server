@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'jacoco'
 
 buildscript {
     repositories {
@@ -38,6 +39,18 @@ idea {
 jar {
     baseName = 'kaamelott-server'
     version =  '0.1-SNAPSHOT'
+}
+
+jacoco {
+    toolVersion = "0.7.6.201602180812"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.enabled false
+    }
 }
 
 sourceCompatibility = 1.8
