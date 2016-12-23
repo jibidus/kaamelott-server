@@ -16,9 +16,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class EpisodeRestTest extends AbstractRestTest {
 
     @Autowired
-    EpisodeRepository episodeRepository;
+    private EpisodeRepository episodeRepository;
 
-    Episode episode;
+    private Episode episode;
 
     @Before
     public final void setUp() throws Exception {

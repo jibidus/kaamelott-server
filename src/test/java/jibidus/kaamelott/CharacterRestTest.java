@@ -16,9 +16,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CharacterRestTest extends AbstractRestTest {
 
     @Autowired
-    CharacterRepository characterRepository;
+    private CharacterRepository characterRepository;
 
-    Character character;
+    private Character character;
 
     @Before
     public final void setUp() throws Exception {

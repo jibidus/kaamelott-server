@@ -19,13 +19,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class SentenceRestTest extends AbstractRestTest {
 
     @Autowired
-    SentenceRepository sentenceRepository;
-    @Autowired
-    CharacterRepository characterRepository;
-    @Autowired
-    EpisodeRepository episodeRepository;
+    private SentenceRepository sentenceRepository;
 
-    Sentence sentence;
+    @Autowired
+    private CharacterRepository characterRepository;
+
+    @Autowired
+    private EpisodeRepository episodeRepository;
+
+    private Sentence sentence;
 
     @Before
     public final void setUp() throws Exception {
