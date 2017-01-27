@@ -6,9 +6,6 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.data.RepositoryItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
-import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
-import org.springframework.batch.item.file.mapping.DefaultLineMapper;
-import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,19 +30,12 @@ class EpisodesLoadingBatchConfiguration {
                 .build();
     }
 
+    public static final String[] CSV_COLUMNS = {"book", "number", "title"};
+
     private FlatFileItemReader<Episode> reader() {
-        FlatFileItemReader<Episode> reader = new FlatFileItemReader();
+        CSVItemReaderBuilder reader = new CSVItemReaderBuilder(Episode.class, CSV_COLUMNS);
         reader.setResource(new ClassPathResource("db/initial_data/episodes.csv"));
         reader.setLinesToSkip(1);
-        reader.setLineMapper(new DefaultLineMapper<Episode>() {{
-            setLineTokenizer(new DelimitedLineTokenizer() {{
-                setNames(new String[]{"book", "number", "title"});
-                setDelimiter(";");
-            }});
-            setFieldSetMapper(new BeanWrapperFieldSetMapper<Episode>() {{
-                setTargetType(Episode.class);
-            }});
-        }});
         return reader;
     }
 

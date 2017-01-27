@@ -11,15 +11,10 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.data.RepositoryItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
-import org.springframework.batch.item.file.mapping.DefaultLineMapper;
-import org.springframework.batch.item.file.mapping.FieldSetMapper;
-import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
-import org.springframework.batch.item.file.transform.FieldSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.validation.BindException;
 
 import java.util.Properties;
 
@@ -27,6 +22,7 @@ import java.util.Properties;
 class SentencesLoadingBatchConfiguration {
 
     public static final String STEP_ID = "sentencesLoadingStep";
+
     @Autowired
     private SentenceRepository sentenceRepository;
 
@@ -48,19 +44,15 @@ class SentencesLoadingBatchConfiguration {
                 .build();
     }
 
+    private static final String[] CSV_COLUMNS = {"text", "character_code", "episode_book", "episode_number"};
+
     private FlatFileItemReader<Sentence> reader() {
-        FlatFileItemReader<Sentence> reader = new FlatFileItemReader();
+        CSVItemReaderBuilder reader = new CSVItemReaderBuilder(Sentence.class, CSV_COLUMNS);
         reader.setResource(new ClassPathResource("db/initial_data/sentences.csv"));
         reader.setLinesToSkip(1);
-        reader.setLineMapper(new DefaultLineMapper<Sentence>() {{
-            setLineTokenizer(new DelimitedLineTokenizer() {{
-                setNames(new String[]{"text", "character_code", "episode_book", "episode_number"});
-                setDelimiter(";");
-            }});
-            setFieldSetMapper(new FieldSetMapper<Sentence>() {
 
-                @Override
-                public Sentence mapFieldSet(FieldSet fieldSet) throws BindException {
+        reader.getLineMapper()
+                .setFieldSetMapper(fieldSet -> {
                     Properties properties = fieldSet.getProperties();
                     Sentence sentence = new Sentence();
 
@@ -76,9 +68,8 @@ class SentencesLoadingBatchConfiguration {
                     sentence.setEpisode(episode);
 
                     return sentence;
-                }
-            });
-        }});
+                });
+
         return reader;
     }
 
