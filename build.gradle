@@ -66,6 +66,10 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-batch")
     compile("org.springframework.data:spring-data-rest-hal-browser")
+
+    // Development only
+    compile("org.springframework.boot:spring-boot-devtools")
+
     // TODO Depends on active profile
     compile('org.postgresql:postgresql:9.4.1212')
     compile("com.h2database:h2")

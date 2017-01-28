@@ -1,7 +1,6 @@
 - Prevent initial data loading during tests
 - Liquibase pour la migration
 - Code quality (coverage + SonarQube)
-- spring-boot-devtools
 - AutoReload with spring loaded
 - BUG : impossible de voir episode.number et book (dans API REST)
 - Admin : lightadmin
