@@ -7,6 +7,8 @@ import jibidus.kaamelott.episode.EpisodeId;
 import jibidus.kaamelott.episode.EpisodeRepository;
 import jibidus.kaamelott.sentence.Sentence;
 import jibidus.kaamelott.sentence.SentenceRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.data.RepositoryItemWriter;
@@ -20,6 +22,8 @@ import java.util.Properties;
 
 @Configuration
 class SentencesLoadingBatchConfiguration {
+
+    static final Logger LOG = LoggerFactory.getLogger(SentencesLoadingBatchConfiguration.class);
 
     public static final String STEP_ID = "sentencesLoadingStep";
 
@@ -58,13 +62,20 @@ class SentencesLoadingBatchConfiguration {
 
                     sentence.setText(properties.getProperty("text"));
 
-                    Character character = characterRepository.findOne(properties.getProperty("character_code"));
+                    String characterId = properties.getProperty("character_code");
+                    Character character = characterRepository.findOne(characterId);
+                    if (character == null) {
+                        LOG.warn("No character found with code {}", characterId);
+                    }
                     sentence.setCharacter(character);
 
                     String book = properties.getProperty("episode_book");
                     int number = Integer.valueOf(properties.getProperty("episode_number"));
                     EpisodeId episodeId = new EpisodeId(book, number);
                     Episode episode = episodeRepository.findOne(episodeId);
+                    if (episode == null) {
+                        LOG.warn("No episode found with book {} and number {}", book, number);
+                    }
                     sentence.setEpisode(episode);
 
                     return sentence;
